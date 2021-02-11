@@ -11,6 +11,7 @@ class Brain():
         dateWords = ["datum", "welcher tag", "welchen tag"]
         thanksWords = ["danke", "dankeschön"]
         mynameWords = ["dein name", "heißt du", "deinen namen", "du heißt"]
+        wikiWords = ["wikipedia", "wiki", "artikel"]
 
         for word in timeWords:
             if text.find(word) != -1:
@@ -31,3 +32,15 @@ class Brain():
             if text.find(word) != -1:
                 print("Es wurde nach Namen gefragt!")
                 return self.action.myName()
+
+        for word in wikiWords:
+            if text.find(word) != -1:
+                print("Es wurde nach einem Wikieintrag gefragt!")
+                splittedText = text.split()
+                if "nach" in splittedText:
+                    return self.action.wikiSearch(text[text.find("nach")+5:])
+                elif "wikipedia" in splittedText:
+                    return self.action.wikiSearch(text[text.find("wikipedia")+10:])
+                else:
+                    return "Ich habe dich nicht verstanden!"
+                

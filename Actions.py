@@ -1,12 +1,14 @@
 from datetime import datetime
 import random
 import locale
+import wikipedia
 
 
 class Actions():
 
     def __init__(self):
         locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+        wikipedia.set_lang("de")
 
     def getTime(self):
         timeText = datetime.now().time()
@@ -22,3 +24,7 @@ class Actions():
 
     def myName(self):
         return "Mein Name ist Fiona"
+
+    def wikiSearch(self, text):
+        article = wikipedia.search(text)[0]
+        return wikipedia.summary(article, sentences=5)
