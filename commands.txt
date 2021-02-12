@@ -12,3 +12,4 @@ Fiona, ...
 
 ... suche auf Wikipedia (nach) ... -> Erste 5 Sätze des Wikieintrags
 
+... suche auf Google (nach) ... -> Sucht nach Google instant answers
