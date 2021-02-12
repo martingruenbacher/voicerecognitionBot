@@ -1,5 +1,4 @@
-import speech_recognition as sr
-from gtts import gTTS # speech to text
+import speech_recognition as sr # speech to text
 import pyttsx3 # text to speech
 import Brain
 
