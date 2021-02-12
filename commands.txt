@@ -1,0 +1,14 @@
+Kommandos:
+
+Fiona, ...
+
+... wie spät ist es? -> derzeitige Uhrzeit
+
+... welchen Tag haben wir heute? -> Heutiges Datum
+
+... wie heißt du? -> Name Fiona
+
+... danke! -> Bitte
+
+... suche auf Wikipedia (nach) ... -> Erste 5 Sätze des Wikieintrags
+
