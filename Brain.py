@@ -13,6 +13,7 @@ class Brain():
         mynameWords = ["dein name", "heißt du", "deinen namen", "du heißt"]
         wikiWords = ["wikipedia", "wiki", "artikel"]
         googleWords = ["google"]
+        coinflipWords = ["münzwurf", "kopf oder zahl"]
 
         for word in timeWords:
             if text.find(word) != -1:
@@ -56,3 +57,7 @@ class Brain():
                 else:
                     return "Ich habe dich nicht verstanden!"
                 
+        for word in coinflipWords:
+            if text.find(word) != -1:
+                print("Kopf oder Zahl?")
+                return self.action.coinflip()

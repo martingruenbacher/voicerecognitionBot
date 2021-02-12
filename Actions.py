@@ -40,3 +40,11 @@ class Actions():
             return result.text
         else:
             return "Ich habe auf Google nichts gefunden!"
+    
+    def coinflip(self):
+        result = random.randint(0,1)
+        if result == 0:
+            return "kopf"
+        else:
+            return "zahl"
+            
