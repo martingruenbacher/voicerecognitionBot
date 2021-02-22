@@ -10,7 +10,8 @@ def g(q,q1):
     while True:
         print(q.get(), q.qsize())
         q1.put("Mach das") # send erkannte funktion
-        time.sleep(1)
+        type(q.get())
+        time.sleep(0.5)
     
 def h(q1):
     while True:

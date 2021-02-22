@@ -1,12 +1,12 @@
 import Actions
 
 
-class Brain():
+class Knowledge():
 
     def __init__(self):
         self.action = Actions.Actions()
 
-    def think(self, text):
+    def getKnowledge(self, text):
         timeWords = ["spät", "viel uhr", "viel uhr", "uhrzeit"]
         dateWords = ["datum", "welcher tag", "welchen tag"]
         thanksWords = ["danke", "dankeschön"]
@@ -61,8 +61,3 @@ class Brain():
             if text.find(word) != -1:
                 print("Kopf oder Zahl?")
                 return self.action.coinflip()
-
-
-
-        # oberhalb Code eingügen!
-        return "Ich habe dich nicht verstanden!"
