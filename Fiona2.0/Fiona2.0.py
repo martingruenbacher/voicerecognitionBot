@@ -32,18 +32,25 @@ class Brain():
         self.textToThink = Queue()
         self.cnt = 0
         self.text = ""
+        brainRecog = Process(target=self.recognize, args=(recordToRecog,self.recog,))
+        brainRecog.start()
 
-    def recognize(self):
+    def recognize(self, recordToRecog, recog):
         while True:
-            # recognize speech using google
+            print("Test")
+            # recognize speech using google 
+            if recordToRecog.qsize() == 0:
+                time.sleep(0.01)
+                continue
             audio = recordToRecog.get()
+            print(audio)
             try:
                 if audio != None:
-                    rec = self.recog.recognize_google(audio, language='de-DE').lower()
+                    rec = recog.recognize_google(audio, language='de-DE').lower()
                     print("You have said \n" + rec)
                     print("Audio Recorded Successfully \n ")
                     # process recognized text
-                    self.recogToText.put(rec)                
+                    recogToText.put(rec)                
             except Exception as e:
                 print("Error :  " + str(e))
 
@@ -86,8 +93,7 @@ if __name__ == "__main__":
 
     ears = Process(target=myEars.listen, args=())
     ears.start()
-    brainRecog = Process(target=myBrain.recognize, args=())
-    brainRecog.start()
+    time.sleep(100)
     brainText = Process(target=myBrain.getText, args=())
     brainText.start()
     brainThink = Process(target=myBrain.thinkAbout, args=())

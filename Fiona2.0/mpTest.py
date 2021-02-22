@@ -4,7 +4,7 @@ import time
 def f(q):
     while True:
         q.put("MyAudio") # send audiofiles
-        time.sleep(0.5)
+        time.sleep(5)
 
 def g(q,q1):
     while True:
