@@ -40,7 +40,7 @@ def getText(recogToText, textToThink):
     cnt = 0
     text = ""
     while True:
-        while cnt < 1:
+        while cnt < 2:
             if recogToText.qsize() == 0:
                 cnt += 1
             else:
@@ -50,13 +50,17 @@ def getText(recogToText, textToThink):
         name = ["fiona", "iona", "unna"]
         if any(x in text for x in name):
             textToThink.put(text)
+        cnt = 0
+        text = ""
 
 # Brain
 def thinkAbout(textToThink):
     voice = Voice()
     knowledge = Knowledge()
     while True:
-        voice.say(knowledge.getKnowledge(textToThink.get()))
+        if textToThink.qsize() != 0:
+            voice.say(knowledge.getKnowledge(textToThink.get()))
+        time.sleep(0.01)
           
 
 class Voice():
