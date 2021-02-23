@@ -1,4 +1,4 @@
-Kommandos:
+Kommandos (Fiona 2.1):
 
 Fiona, ...
 
@@ -13,3 +13,5 @@ Fiona, ...
 ... suche auf Wikipedia (nach) ... -> Erste 5 Sätze des Wikieintrags
 
 ... suche auf Google (nach) ... -> Sucht nach Google instant answers
+
+... mache Münzwurf (oder "Kopf oder Zahl") -> Macht Münzwurf und sagt Ergebnis
