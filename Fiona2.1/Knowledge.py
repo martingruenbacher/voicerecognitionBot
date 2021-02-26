@@ -7,7 +7,7 @@ class Knowledge():
         self.action = Actions.Actions()
 
     def getKnowledge(self, text):
-        timeWords = ["spät", "viel uhr", "viel uhr", "uhrzeit"]
+        timeWords = ["spät", "viel uhr", "uhrzeit"]
         dateWords = ["datum", "welcher tag", "welchen tag"]
         thanksWords = ["danke", "dankeschön"]
         mynameWords = ["dein name", "heißt du", "deinen namen", "du heißt"]
@@ -61,3 +61,4 @@ class Knowledge():
             if text.find(word) != -1:
                 print("Kopf oder Zahl?")
                 return self.action.coinflip()
+

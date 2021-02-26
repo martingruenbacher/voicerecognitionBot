@@ -89,3 +89,4 @@ if __name__ == "__main__":
     brainText.start()
     brainThink = Process(target=thinkAbout, args=(textToThink,))
     brainThink.start()
+
