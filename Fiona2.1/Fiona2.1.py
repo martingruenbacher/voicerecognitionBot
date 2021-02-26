@@ -8,9 +8,13 @@ import time
 # Ear
 def listen(recordToRecog):
     recog = sr.Recognizer()
+    cnt = 0
     while True:
         with sr.Microphone(device_index=1) as source:
-            recog.adjust_for_ambient_noise(source)
+            if cnt > 10:
+                recog.adjust_for_ambient_noise(source)
+                cnt = 0
+            cnt += 1
             print("I am listening")
             audio = recog.listen(source)
             print("Recognizing Now .... ")

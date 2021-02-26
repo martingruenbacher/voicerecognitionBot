@@ -14,6 +14,7 @@ class Knowledge():
         wikiWords = ["wikipedia", "wiki", "artikel"]
         googleWords = ["google"]
         coinflipWords = ["münzwurf", "kopf oder zahl"]
+        vogiWords = ["vogi", "witz", "joke", "vogel", "kransteiner", "jakob"]
 
         for word in timeWords:
             if text.find(word) != -1:
@@ -62,3 +63,11 @@ class Knowledge():
                 print("Kopf oder Zahl?")
                 return self.action.coinflip()
 
+        for word in vogiWords:
+            if text.find(word) != -1:
+                print("Es wurde nach Vogiwitz gefragt!")
+                return self.action.vogiJoke()
+
+                
+        # Put your code above
+        return "Ich habe dich nicht verstanden!"
