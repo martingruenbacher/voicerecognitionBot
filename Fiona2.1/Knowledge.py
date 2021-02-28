@@ -14,6 +14,7 @@ class Knowledge():
         wikiWords = ["wikipedia", "wiki", "artikel"]
         googleWords = ["google"]
         coinflipWords = ["münzwurf", "kopf oder zahl"]
+        diceWords = ["würfel", "würfle"]
 
         for word in timeWords:
             if text.find(word) != -1:
@@ -61,3 +62,8 @@ class Knowledge():
             if text.find(word) != -1:
                 print("Kopf oder Zahl?")
                 return self.action.coinflip()
+
+        for word in diceWords:
+            if text.find(word) != -1:
+                print("Der Würfel wurde geworfen!")
+                return self.action.diceRoll()

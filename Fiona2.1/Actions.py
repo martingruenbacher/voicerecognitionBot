@@ -48,3 +48,6 @@ class Actions():
         else:
             return "zahl"
             
+    def diceRoll(self):
+        result = random.randint(1,6)
+        return str(result)
