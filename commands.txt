@@ -15,3 +15,5 @@ Fiona, ...
 ... suche auf Google (nach) ... -> Sucht nach Google instant answers
 
 ... mache Münzwurf (oder "Kopf oder Zahl") -> Macht Münzwurf und sagt Ergebnis
+
+... erzähl mir einen {Vogi, Kransteiner, Jakob} Witz -> Erzählt einen Vogi Witz

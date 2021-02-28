@@ -7,13 +7,14 @@ class Knowledge():
         self.action = Actions.Actions()
 
     def getKnowledge(self, text):
-        timeWords = ["spät", "viel uhr", "viel uhr", "uhrzeit"]
+        timeWords = ["spät", "viel uhr", "uhrzeit"]
         dateWords = ["datum", "welcher tag", "welchen tag"]
         thanksWords = ["danke", "dankeschön"]
         mynameWords = ["dein name", "heißt du", "deinen namen", "du heißt"]
         wikiWords = ["wikipedia", "wiki", "artikel"]
         googleWords = ["google"]
         coinflipWords = ["münzwurf", "kopf oder zahl"]
+        vogiWords = ["vogi", "witz", "joke", "vogel", "kransteiner", "jakob", "voji", "phobie"]
         diceWords = ["würfel", "würfle"]
 
         for word in timeWords:
@@ -63,7 +64,15 @@ class Knowledge():
                 print("Kopf oder Zahl?")
                 return self.action.coinflip()
 
+        for word in vogiWords:
+            if text.find(word) != -1:
+                print("Es wurde nach Vogiwitz gefragt!")
+                return self.action.vogiJoke()
+
         for word in diceWords:
             if text.find(word) != -1:
                 print("Der Würfel wurde geworfen!")
                 return self.action.diceRoll()
+                
+        # Put your code above
+        return "Ich habe dich nicht verstanden!"

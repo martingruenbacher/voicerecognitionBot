@@ -4,6 +4,8 @@ import locale
 import wikipedia
 import requests
 from bs4 import BeautifulSoup
+from playsound import playsound
+import os
 
 
 class Actions():
@@ -47,6 +49,15 @@ class Actions():
             return "kopf"
         else:
             return "zahl"
+
+    def vogiJoke(self):
+        dirname = os.path.dirname(__file__)
+        subdirname = os.path.join(dirname, 'vogiwitze')
+        files = len([name for name in os.listdir(subdirname) if os.path.isfile(os.path.join(subdirname, name))])
+        res = random.randint(1, files)
+        filename = os.path.join(subdirname, str(res)+'.mp3')
+        playsound(filename)
+        return ""
             
     def diceRoll(self):
         result = random.randint(1,6)

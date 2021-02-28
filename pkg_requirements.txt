@@ -1,2 +1,3 @@
-pip3 install SpeechRecognition pyttsx3 wikipedia bs4 lxml pipwin multiprocessing
+pip install SpeechRecognition pyttsx3 bs4 lxml pipwin
+pip3 wikipedia
 pipwin install PyAudio
