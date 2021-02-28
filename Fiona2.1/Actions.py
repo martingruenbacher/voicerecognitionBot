@@ -59,3 +59,6 @@ class Actions():
         playsound(filename)
         return ""
             
+    def diceRoll(self):
+        result = random.randint(1,6)
+        return str(result)
