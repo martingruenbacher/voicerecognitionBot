@@ -16,6 +16,7 @@ class Knowledge():
         coinflipWords = ["münzwurf", "kopf oder zahl"]
         vogiWords = ["vogi", "witz", "joke", "vogel", "kransteiner", "jakob", "voji", "phobie"]
         diceWords = ["würfel", "würfle"]
+        fartsoundWords = ["furz", "pups", "kurz"]
 
         for word in timeWords:
             if text.find(word) != -1:
@@ -73,6 +74,11 @@ class Knowledge():
             if text.find(word) != -1:
                 print("Der Würfel wurde geworfen!")
                 return self.action.diceRoll()
+
+        for word in fartsoundWords:
+            if text.find(word) != -1:
+                print("Agehhh, wer war den dass?")
+                return self.action.fartsound()
                 
         # Put your code above
         return "Ich habe dich nicht verstanden!"

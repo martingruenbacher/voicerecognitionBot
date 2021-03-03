@@ -62,3 +62,12 @@ class Actions():
     def diceRoll(self):
         result = random.randint(1,6)
         return str(result)
+
+    def fartsound(self):
+        dirname = os.path.dirname(__file__)
+        subdirname = os.path.join(dirname, 'fartsound')
+        files = len([name for name in os.listdir(subdirname) if os.path.isfile(os.path.join(subdirname, name))])
+        res = random.randint(1, files)
+        filename = os.path.join(subdirname, str(res)+'.mp3')
+        playsound(filename)
+        return ""
