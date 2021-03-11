@@ -10,7 +10,7 @@ def listen(recordToRecog):
     recog = sr.Recognizer()
     cnt = 0
     while True:
-        with sr.Microphone(device_index=1) as source:
+        with sr.Microphone() as source:
             if cnt > 10:
                 recog.adjust_for_ambient_noise(source)
                 cnt = 0
@@ -51,7 +51,7 @@ def getText(recogToText, textToThink):
                 text += recogToText.get()
                 cnt = 0
             time.sleep(0.5)
-        name = ["fiona", "iona", "unna"]
+        name = ["fiona", "iona", "jona", "unna"]
         if any(x in text for x in name):
             textToThink.put(text)
         cnt = 0
@@ -72,6 +72,7 @@ class Voice():
     def __init__(self):
         self.voice = pyttsx3.init()
         self.voice.setProperty('rate', 125)
+        self.voice.setProperty('voice', 'german+f1')
         self.voice.say("Hallo ihr geilen Säcke!")
         self.voice.runAndWait()
 

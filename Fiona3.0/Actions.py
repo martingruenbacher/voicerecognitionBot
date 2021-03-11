@@ -4,14 +4,15 @@ import locale
 import wikipedia
 import requests
 from bs4 import BeautifulSoup
-from playsound import playsound
 import os
+from pydub import AudioSegment
+from pydub.playback import play
 
 
 class Actions():
 
     def __init__(self):
-        locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+        locale.setlocale(locale.LC_ALL)
         wikipedia.set_lang("de")
 
     def getTime(self):
@@ -51,12 +52,13 @@ class Actions():
             return "zahl"
 
     def vogiJoke(self):
-        dirname = os.path.dirname(__file__)
-        subdirname = os.path.join(dirname, 'vogiwitze')
-        files = len([name for name in os.listdir(subdirname) if os.path.isfile(os.path.join(subdirname, name))])
+        cwd = os.getcwd()
+        path = cwd + '/vogiwitze'
+        files = len([f for f in os.listdir(path)if os.path.isfile(os.path.join(path, f))])
         res = random.randint(1, files)
-        filename = os.path.join(subdirname, str(res)+'.mp3')
-        playsound(filename)
+        filename = os.path.join(path, str(res)+'.mp3')
+        song = AudioSegment.from_mp3(filename)
+        play(song)
         return ""
             
     def diceRoll(self):
@@ -64,10 +66,11 @@ class Actions():
         return str(result)
 
     def fartsound(self):
-        dirname = os.path.dirname(__file__)
-        subdirname = os.path.join(dirname, 'fartsound')
-        files = len([name for name in os.listdir(subdirname) if os.path.isfile(os.path.join(subdirname, name))])
+        cwd = os.getcwd()
+        path = cwd + '/fartsound'
+        files = len([f for f in os.listdir(path)if os.path.isfile(os.path.join(path, f))])
         res = random.randint(1, files)
-        filename = os.path.join(subdirname, str(res)+'.mp3')
-        playsound(filename)
+        filename = os.path.join(path, str(res)+'.mp3')
+        song = AudioSegment.from_mp3(filename)
+        play(song)
         return ""
