@@ -1,3 +1,6 @@
 pip install SpeechRecognition pyttsx3 bs4 lxml pipwin
 pip3 wikipedia playsound
 pipwin install PyAudio
+
+// For RPi
+sudo apt install libespeak1

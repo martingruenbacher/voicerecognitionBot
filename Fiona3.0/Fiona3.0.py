@@ -1,8 +1,9 @@
 import speech_recognition as sr # speech to text
-import pyttsx3 # text to speech
+from gtts import gTTS  # text to speech
 from Knowledge import Knowledge
 from multiprocessing import Process, Queue
 import time
+import os
 
 
 # Ear
@@ -70,15 +71,12 @@ def thinkAbout(textToThink):
 class Voice():
 
     def __init__(self):
-        self.voice = pyttsx3.init()
-        self.voice.setProperty('rate', 125)
-        self.voice.setProperty('voice', 'german+f1')
-        self.voice.say("Hallo ihr geilen Säcke!")
-        self.voice.runAndWait()
+        self.language = 'de'
 
     def say(self, text):
-        self.voice.say(text)
-        self.voice.runAndWait()
+        phrase = gTTS(text=text, lang=self.language, slow=False)
+        phrase.save("phrase.mp3")
+        os.system("mpg321 phrase.mp3")
 
 
 if __name__ == "__main__":
