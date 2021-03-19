@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 from playsound import playsound
 import os
+from lib.Spotify import Spotify
 
 
 class Actions():
@@ -13,6 +14,7 @@ class Actions():
     def __init__(self):
         locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
         wikipedia.set_lang("de")
+        self.sp = Spotify()
 
     def getTime(self):
         timeText = datetime.now().time()
@@ -71,3 +73,35 @@ class Actions():
         filename = os.path.join(subdirname, str(res)+'.mp3')
         playsound(filename)
         return ""
+
+    def spPlay(self):
+        self.sp.startSong()
+        return "Ich habe Spotify gestartet!"
+
+    def spPause(self):
+        self.sp.pauseSong()
+        return "Ich habe Spotify angehalten!"
+
+    def spSkip(self):
+        self.sp.skipSong()
+        return "Ich habe auf Spotify ein Lied übersprungen!"
+
+    def spAddToQueue(self, text):
+        self.sp.addToQueue(text)
+        return "Ich habe " + text + "zur Warteschlange hinzugefügt!"
+
+    def spPlaySong(self, text):
+        self.sp.playSong(text)
+        return "Ich habe " + text + "gestartet!"
+
+    def spPlayPlaylist(self, text):
+        self.sp.playPlaylist(text)
+        return "Ich habe " + text + "Playlist gestartet!"
+
+    def spMaxVol(self):
+        self.sp.setMaxVolume()
+        return "Ich habe die Lautstärke voll aufgedreht!"
+
+    def spMinVol(self):
+        self.sp.setMinVolume()
+        return "Ich habe die Lautstärke minimiert!"
