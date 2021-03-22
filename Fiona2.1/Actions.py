@@ -105,3 +105,14 @@ class Actions():
     def spMinVol(self):
         self.sp.setMinVolume()
         return "Ich habe die Lautstärke minimiert!"
+    
+    def birthdaySearch(self, text):
+        dirname = os.path.dirname(__file__)
+        subdirname = os.path.join(dirname, 'birthday')
+        filename = os.path.join(subdirname, 'birthday'+'.txt')
+        with open (filename, "r") as file:
+            for line in file:
+                if text in line:
+                    date = file.readline()
+        file.close()
+        return date

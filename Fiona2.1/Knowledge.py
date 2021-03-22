@@ -25,7 +25,8 @@ class Knowledge():
         spItalienWords = ["italien", "italien playlist", "2020", "italy"]
         spVolMaxWords = ["max", "maximale", "laut", "lauter"]
         spVolMinWords = ["min", "leise", "leiser", "minimal"]
-
+        birthdayWords = ["geburtstag"]
+        
         for word in timeWords:
             if text.find(word) != -1:
                 print("Es wurde nach der Uhrzeit gefragt!")
@@ -128,6 +129,17 @@ class Knowledge():
                 if text.find(word) != -1:
                     print("Spotify dreh Lautstärke min!")
                     return self.action.spMinVol()
-                
+
+        for word in birthdayWords:
+            if text.find(word) != -1:
+                print("Es wurde nach einem Geburtstag gefragt")
+                splittedText = text.split()
+                if "von" in splittedText:
+                    return self.action.birthdaySearch(text[text.find("von")+4:])
+                elif "hat" in splittedText:
+                    return self.action.birthdaySearch(text[text.find("hat")+4:len(text)-11])
+                else:
+                    return "Ich habe dich nicht verstanden!"
+
         # Put your code above
         return "Ich habe dich nicht verstanden!"
