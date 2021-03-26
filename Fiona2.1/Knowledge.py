@@ -1,12 +1,9 @@
-import Actions
-from lib.Telegram import Telegram
 
 
 class Knowledge():
 
-    def __init__(self):
-        self.action = Actions.Actions()
-        self.teleBot = Telegram()
+    def __init__(self, action):
+        self.action = action
 
     def getKnowledge(self, text):
         timeWords = ["spät", "viel uhr", "uhrzeit"]

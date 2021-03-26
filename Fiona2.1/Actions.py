@@ -11,10 +11,11 @@ from lib.Spotify import Spotify
 
 class Actions():
 
-    def __init__(self):
+    def __init__(self, teleBot):
         locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
         wikipedia.set_lang("de")
         self.sp = Spotify()
+        self.teleBot = teleBot
 
     def getTime(self):
         timeText = datetime.now().time()
