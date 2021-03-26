@@ -54,7 +54,7 @@ class Actions():
 
     def vogiJoke(self):
         dirname = os.path.dirname(__file__)
-        subdirname = os.path.join(dirname, 'vogiwitze')
+        subdirname = os.path.join(dirname, 'resources/vogiwitze')
         files = len([name for name in os.listdir(subdirname) if os.path.isfile(os.path.join(subdirname, name))])
         res = random.randint(1, files)
         filename = os.path.join(subdirname, str(res)+'.mp3')
@@ -67,7 +67,7 @@ class Actions():
 
     def fartsound(self):
         dirname = os.path.dirname(__file__)
-        subdirname = os.path.join(dirname, 'fartsound')
+        subdirname = os.path.join(dirname, 'resources/fartsound')
         files = len([name for name in os.listdir(subdirname) if os.path.isfile(os.path.join(subdirname, name))])
         res = random.randint(1, files)
         filename = os.path.join(subdirname, str(res)+'.mp3')
@@ -108,7 +108,7 @@ class Actions():
     
     def birthdaySearch(self, text):
         dirname = os.path.dirname(__file__)
-        subdirname = os.path.join(dirname, 'birthday')
+        subdirname = os.path.join(dirname, 'resources/birthday')
         filename = os.path.join(subdirname, 'birthday'+'.txt')
         with open (filename, "r") as file:
             for line in file:
