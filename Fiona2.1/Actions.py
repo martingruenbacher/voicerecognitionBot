@@ -117,3 +117,12 @@ class Actions():
                     date = file.readline()
         file.close()
         return date
+
+    def telegramSendPhoto(self):
+        # os.system(make foto)
+        self.teleBot.sendPhoto("path")
+        return ""
+
+    def telegramSendMessage(self, msg):
+        self.teleBot.sendMessage(msg)
+        return ""

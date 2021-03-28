@@ -70,10 +70,9 @@ def thinkAbout(textToThink):
         if textToThink.qsize() != 0:
             voice.say(knowledge.getKnowledge(textToThink.get()))
         # process TelegramChatBot
-        if teleBot.getUpdates() != "":
-            # get message -> zugriff direkt auf actions
-            # -> in actions telebot send functions
-            pass
+        knowledge.checkTelegram(teleBot.getUpdates())
+        teleBot.message = ""           
+
         time.sleep(0.01)
           
 

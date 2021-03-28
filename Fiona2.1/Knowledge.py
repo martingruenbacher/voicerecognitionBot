@@ -142,3 +142,19 @@ class Knowledge():
 
         # Put your code above
         return "Ich habe dich nicht verstanden!"
+
+
+    def checkTelegram(self, msg):
+        if msg == "":
+            return ""
+        print(msg)
+        fotoWords = ["foto", "photo"]
+
+        msg = msg['text'].lower()
+        for word in fotoWords:
+            if msg.find(word) != -1:
+                print("Telegram send Foto!")
+                return self.action.telegramSendMessage("Ich mache ein Foto!")
+                #return self.action.telegramSendPhoto()
+
+
