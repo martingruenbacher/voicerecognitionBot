@@ -1,0 +1,22 @@
+#############
+birthday list
+#############
+
+
+please use this form:
+
+PERSON: KEYWORDS... 	(=name, nicknames, fiona's common misinterpretations, etc.)
+DATE 		(=fiona's return command)
+
+
+Raphael Humer: raphael, rafael, humer, huawei, homer
+13.02.1998
+
+Martin Grünbacher: martin
+08.02.2000
+
+Andreas Zauner: andreas, zauner, sauna
+06.08.1999
+
+Thomas Kranzl: thomas
+30.06.2000

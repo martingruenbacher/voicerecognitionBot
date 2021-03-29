@@ -122,8 +122,8 @@ class Actions():
         return date
 
     def telegramSendPhoto(self):
-        os.system("raspistill -w 1920 -h 1080 -o test.jpg")
-        self.teleBot.sendPhoto("/home/pi/Desktop/test.jpg")
+        os.system("raspistill -w 1920 -h 1080 -o resources/images/test.jpg")
+        self.teleBot.sendPhoto("/home/pi/Desktop/voicerecognitionBot/Fiona3.0/resources/images/Fionatest.jpg")
         return ""
 
     def telegramSendMessage(self, msg):
