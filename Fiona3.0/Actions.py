@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 import os
 from pydub import AudioSegment
 from pydub.playback import play
+from lib.Spotify import Spotify
 
 
 class Actions():
@@ -14,6 +15,8 @@ class Actions():
     def __init__(self):
         locale.setlocale(locale.LC_ALL)
         wikipedia.set_lang("de")
+        self.sp = Spotify()
+        self.teleBot = teleBot
 
     def getTime(self):
         timeText = datetime.now().time()
@@ -74,3 +77,56 @@ class Actions():
         song = AudioSegment.from_mp3(filename)
         play(song)
         return ""
+
+    def spPlay(self):
+        self.sp.startSong()
+        return "Ich habe Spotify gestartet!"
+
+    def spPause(self):
+        self.sp.pauseSong()
+        return "Ich habe Spotify angehalten!"
+
+    def spSkip(self):
+        self.sp.skipSong()
+        return "Ich habe auf Spotify ein Lied übersprungen!"
+
+    def spAddToQueue(self, text):
+        self.sp.addToQueue(text)
+        return "Ich habe " + text + "zur Warteschlange hinzugefügt!"
+
+    def spPlaySong(self, text):
+        self.sp.playSong(text)
+        return "Ich habe " + text + "gestartet!"
+
+    def spPlayPlaylist(self, text):
+        self.sp.playPlaylist(text)
+        return "Ich habe " + text + "Playlist gestartet!"
+
+    def spMaxVol(self):
+        self.sp.setMaxVolume()
+        return "Ich habe die Lautstärke voll aufgedreht!"
+
+    def spMinVol(self):
+        self.sp.setMinVolume()
+        return "Ich habe die Lautstärke minimiert!"
+    
+    def birthdaySearch(self, text):
+        dirname = os.path.dirname(__file__)
+        subdirname = os.path.join(dirname, 'resources/birthday')
+        filename = os.path.join(subdirname, 'birthday'+'.txt')
+        with open (filename, "r") as file:
+            for line in file:
+                if text in line:
+                    date = file.readline()
+        file.close()
+        return date
+
+    def telegramSendPhoto(self):
+        os.system("raspistill -w 1920 -h 1080 -o test.jpg")
+        self.teleBot.sendPhoto("/home/pi/Desktop/test.jpg")
+        return ""
+
+    def telegramSendMessage(self, msg):
+        self.teleBot.sendMessage(msg)
+        return ""
+

@@ -71,7 +71,7 @@ def thinkAbout(textToThink):
             voice.say(knowledge.getKnowledge(textToThink.get()))
         # process TelegramChatBot
         knowledge.checkTelegram(teleBot.getUpdates())
-        teleBot.message = ""           
+        teleBot.message = ""
 
         time.sleep(0.01)
           

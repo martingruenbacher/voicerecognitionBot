@@ -1,4 +1,3 @@
-import Actions
 
 
 class Knowledge():
@@ -17,6 +16,15 @@ class Knowledge():
         vogiWords = ["vogi", "witz", "joke", "vogel", "kransteiner", "jakob", "voji", "phobie"]
         diceWords = ["würfel", "würfle"]
         fartsoundWords = ["furz", "pups", "kurz"]
+        spPlayWords = ["starten", "starte", "start"]
+        spPauseWords = ["stop", "stopp", "pause", "pausieren", "anhalten"]
+        spSkipWords = ["skip", "überspringe", "überspringen", "weiter"]
+        spAddQueueWords = ["füge", "hinzu", "warteschlange", "queue"]
+        spPlaySongWords = ["spiele", "song", "lied", "spiel auf", "spiele auf"]
+        spItalienWords = ["italien", "italien playlist", "2020", "italy"]
+        spVolMaxWords = ["max", "maximale", "laut", "lauter"]
+        spVolMinWords = ["min", "leise", "leiser", "minimal"]
+        birthdayWords = ["geburtstag"]
 
         for word in timeWords:
             if text.find(word) != -1:
@@ -80,5 +88,71 @@ class Knowledge():
                 print("Agehhh, wer war den dass?")
                 return self.action.fartsound()
                 
+        if "spotify" in text:
+            for word in spPlaySongWords:
+                if text.find(word) != -1:
+                    print("Spotify spiel sofort!")
+                    return self.action.spPlaySong(text[text.find("spotify")+8:])
+
+            for word in spAddQueueWords:
+                if text.find(word) != -1:
+                    print("Spotify füge etwas zur Queue hinzu!")
+                    return self.action.spAddToQueue(text[text.find("spotify")+8:])
+
+            for word in spPlayWords:
+                if text.find(word) != -1:
+                    print("Spotify Play!")
+                    return self.action.spPlay()
+
+            for word in spPauseWords:
+                if text.find(word) != -1:
+                    print("Spotify Pause!")
+                    return self.action.spPause()
+
+            for word in spSkipWords:
+                if text.find(word) != -1:
+                    print("Spotify Skip!")
+                    return self.action.spSkip()
+
+            for word in spItalienWords:
+                if text.find(word) != -1:
+                    print("Spotify spiel Italien 2020!")
+                    return self.action.spPlayPlaylist("Italien 2020")
+
+            for word in spVolMaxWords:
+                if text.find(word) != -1:
+                    print("Spotify dreh Lautstärke max!")
+                    return self.action.spMaxVol()
+
+            for word in spVolMinWords:
+                if text.find(word) != -1:
+                    print("Spotify dreh Lautstärke min!")
+                    return self.action.spMinVol()
+
+        for word in birthdayWords:
+            if text.find(word) != -1:
+                print("Es wurde nach einem Geburtstag gefragt")
+                splittedText = text.split()
+                if "von" in splittedText:
+                    return self.action.birthdaySearch(text[text.find("von")+4:])
+                elif "hat" in splittedText:
+                    return self.action.birthdaySearch(text[text.find("hat")+4:len(text)-11])
+                else:
+                    return "Ich habe dich nicht verstanden!"
+
         # Put your code above
         return "Ich habe dich nicht verstanden!"
+
+
+    def checkTelegram(self, msg):
+        if msg == "":
+            return ""
+        print(msg)
+        fotoWords = ["foto", "photo"]
+
+        msg = msg['text'].lower()
+        for word in fotoWords:
+            if msg.find(word) != -1:
+                print("Telegram send Foto!")
+                #return self.action.telegramSendMessage("Ich mache ein Foto!")
+                return self.action.telegramSendPhoto()

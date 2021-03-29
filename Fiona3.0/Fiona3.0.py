@@ -1,6 +1,8 @@
 import speech_recognition as sr # speech to text
 from gtts import gTTS  # text to speech
 from Knowledge import Knowledge
+from Actions import Actions
+from lib.Telegram import Telegram
 from multiprocessing import Process, Queue
 import time
 import os
@@ -61,10 +63,17 @@ def getText(recogToText, textToThink):
 # Brain
 def thinkAbout(textToThink):
     voice = Voice()
-    knowledge = Knowledge()
+    teleBot = Telegram()
+    action = Actions(teleBot)
+    knowledge = Knowledge(action)
     while True:
+        # process Fiona input
         if textToThink.qsize() != 0:
             voice.say(knowledge.getKnowledge(textToThink.get()))
+        # process TelegramChatBot
+        knowledge.checkTelegram(teleBot.getUpdates())
+        teleBot.message = ""
+        
         time.sleep(0.01)
           
 
