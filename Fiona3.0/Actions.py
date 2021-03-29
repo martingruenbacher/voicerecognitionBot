@@ -56,7 +56,7 @@ class Actions():
 
     def vogiJoke(self):
         cwd = os.getcwd()
-        path = cwd + '/vogiwitze'
+        path = cwd + '/resources/vogiwitze'
         files = len([f for f in os.listdir(path)if os.path.isfile(os.path.join(path, f))])
         res = random.randint(1, files)
         filename = os.path.join(path, str(res)+'.mp3')
@@ -70,7 +70,7 @@ class Actions():
 
     def fartsound(self):
         cwd = os.getcwd()
-        path = cwd + '/fartsound'
+        path = cwd + '/resources/fartsound'
         files = len([f for f in os.listdir(path)if os.path.isfile(os.path.join(path, f))])
         res = random.randint(1, files)
         filename = os.path.join(path, str(res)+'.mp3')
@@ -123,7 +123,7 @@ class Actions():
 
     def telegramSendPhoto(self):
         os.system("raspistill -w 1920 -h 1080 -o resources/images/test.jpg")
-        self.teleBot.sendPhoto("resources/images/Fionatest.jpg")
+        self.teleBot.sendPhoto("resources/images/test.jpg")
         return ""
 
     def telegramSendMessage(self, msg):
