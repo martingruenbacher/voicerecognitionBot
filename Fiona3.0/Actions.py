@@ -12,7 +12,7 @@ from lib.Spotify import Spotify
 
 class Actions():
 
-    def __init__(self):
+    def __init__(self, teleBot):
         locale.setlocale(locale.LC_ALL)
         wikipedia.set_lang("de")
         self.sp = Spotify()
@@ -123,7 +123,7 @@ class Actions():
 
     def telegramSendPhoto(self):
         os.system("raspistill -w 1920 -h 1080 -o resources/images/test.jpg")
-        self.teleBot.sendPhoto("/home/pi/Desktop/voicerecognitionBot/Fiona3.0/resources/images/Fionatest.jpg")
+        self.teleBot.sendPhoto("resources/images/Fionatest.jpg")
         return ""
 
     def telegramSendMessage(self, msg):

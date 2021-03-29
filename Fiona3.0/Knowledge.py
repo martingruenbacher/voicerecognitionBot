@@ -2,8 +2,8 @@
 
 class Knowledge():
 
-    def __init__(self):
-        self.action = Actions.Actions()
+    def __init__(self, action):
+        self.action = action
 
     def getKnowledge(self, text):
         timeWords = ["spät", "viel uhr", "uhrzeit"]
