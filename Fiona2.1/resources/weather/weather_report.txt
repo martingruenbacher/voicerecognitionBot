@@ -1,0 +1,3 @@
+Servus Martin, 
+dein Wetterbot meldet sich, wie angefragt, mit dem derzeitigen Wetter in Desselbrunn. Es ist Mittwoch, 18:00, derzeit haben wir folgendes Wetter: Sonnig. Die Außentemperatur beträgt 22°C, die Luftfeuchtigkeit beträgt 33% und die Regenwahrscheinlichkeit beträgt 1%. Es weht ein Wind mit 5 km/h.https://ssl.gstatic.com/onebox/weather/64/sunny.png
+Dein Wetterbot wünscht dir noch einen schönen Tag.

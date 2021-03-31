@@ -165,4 +165,7 @@ class Knowledge():
         if "spotify" in text:
             return self.checkSpotify(text)
 
+        if "wetter" in text:
+            return self.action.telegramSendWeather(msg['from']['first_name'])
+
 

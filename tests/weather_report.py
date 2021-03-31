@@ -1,4 +1,4 @@
-import googleweather as googleweather
+import GoogleWeather as GoogleWeather
 import os
 import time
 
@@ -21,7 +21,8 @@ class WeatherReport():
             print("cnt fails ", self.cnt_failed)
             self.cnt_failed = self.cnt_failed + 1
             if self.cnt_failed > 10:
-                f = open("/home/pi/Dekstop/web_scraping/reboot_flag.txt", "w")
+                cwd = os.getcwd()
+                f = open(cwd + "resources/weather/reboot_flag.txt", "w")
                 f.write("True")
                 f.close()
                 os.system("sudo reboot now")
@@ -57,14 +58,13 @@ class WeatherReport():
                 +hm+" und <br>die Regenwahrscheinlichkeit beträgt "+rain+". Es weht ein Wind mit "\
                 +ws+".<br><img text-align=center display=block src="+wi+"></img>"\
                 +"<br><br>Dein Wetterbot wünscht dir noch einen schönen Tag."
-
-        f = open("/home/pi/Desktop/web_scraping/weather_report.txt", "w+")
+        cwd = os.getcwd()
+        f = open(cwd + "resources/weather/weather_report.txt", "w+")
         f.write(text)
         f.close()
 
         print("Weather report DONE")
-        #os.system("python3 /home/pi/Desktop/web_scraping/selenium_lenovo_headless.py")
-
+        
 
     def get_weather_prediction(self, name=""):
         try:
@@ -74,13 +74,15 @@ class WeatherReport():
             print("get_weather_prediction failed - retrying - ErrorMessage: ", e)
             self.cnt_failed = self.cnt_failed + 1
             if self.cnt_failed > 10:
-                f = open("/home/pi/Desktop/web_scraping/reboot_flag.txt", "w")
+                cwd = os.getcwd()
+                f = open(cwd + "resources/weather/reboot_flag.txt", "w")
                 f.write("True")
                 f.close()
                 os.system("sudo reboot now")
                 time.sleep(10)
             os.system("sudo pkill chromium")
-            f = open("/home/pi/Desktop/web_scraping/master.log", "a")
+            cwd = os.getcwd()
+            f = open("resources/weather/master.log", "a")
             f.write(str(time.strftime("%d.%m.%Y")) + ", " + str(time.strftime("%H:%M:%S")) + ", " + "get_weather_prediction failed - retrying - ErrorMessage: " + str(e) + "\n")
             f.close()
             time.sleep(5)
@@ -111,13 +113,12 @@ class WeatherReport():
                 +ws+".<br><img text-align=center display=block src="+wi+"></img>"\
                 +"<br><br>Dein Wetterbot wünscht dir noch einen schönen Tag."
 
-        f = open("/home/pi/Desktop/web_scraping/weather_report.txt", "w+")
+        cwd = os.getcwd()
+        f = open(cwd + "resources/weather/weather_report.txt", "w+")
         f.write(text)
         f.close()
 
         print("Weather report DONE")
-        #os.system("python3 /home/pi/Desktop/web_scraping/selenium_lenovo_headless.py")
-
 
 
 

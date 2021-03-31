@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from playsound import playsound
 import os
 from lib.Spotify import Spotify
+from lib.WeatherReport import WeatherReport
 
 
 class Actions():
@@ -16,6 +17,7 @@ class Actions():
         wikipedia.set_lang("de")
         self.sp = Spotify()
         self.teleBot = teleBot
+        self.weather = WeatherReport()
 
     def getTime(self):
         timeText = datetime.now().time()
@@ -125,4 +127,8 @@ class Actions():
 
     def telegramSendMessage(self, msg):
         self.teleBot.sendMessage(msg)
+        return ""
+
+    def telegramSendWeather(self, name):
+        self.telegramSendMessage(self.weather.get_weather(name=name))
         return ""
