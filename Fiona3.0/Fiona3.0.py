@@ -83,9 +83,10 @@ class Voice():
         self.language = 'de'
 
     def say(self, text):
-        phrase = gTTS(text=text, lang=self.language, slow=False)
-        phrase.save("phrase.mp3")
-        os.system("mpg321 phrase.mp3")
+        if text != "":
+            phrase = gTTS(text=text, lang=self.language, slow=False)
+            phrase.save("phrase.mp3")
+            os.system("mpg321 phrase.mp3")
 
 
 if __name__ == "__main__":

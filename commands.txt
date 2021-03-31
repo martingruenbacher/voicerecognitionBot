@@ -17,3 +17,25 @@ Fiona, ...
 ... mache Münzwurf (oder "Kopf oder Zahl") -> Macht Münzwurf und sagt Ergebnis
 
 ... erzähl mir einen {Vogi, Kransteiner, Jakob} Witz -> Erzählt einen Vogi Witz
+
+... {würfel, würfel} -> Macht Würfelwurf
+
+... {furz, pups, kurz} -> Spielt Furzsound ab
+
+... geburtstag {von, hat} ... -> Sucht nach Geburtstag
+
+... spotify {starten, starte, start} -> startet Spotify
+
+... spotify {stop, stoppp, pause, pausieren, anhalten} -> stoppt Spotify
+
+... spotify {skip, überspringe, überspringen, weiter} -> skip Spotifysong
+
+... {füge, hinzu, warteschlange, queue} spotify ... -> Fügt Spotifysong zur Warteschlange hinzu
+
+... {spiele, song, lied, spiel auf} spotify ... -> Spielt Spotifysong direkt ab
+
+... spotify {italien, italien playlist, 2020, italy} -> Spielt Italien2020 Playist ab
+
+... spotify {max, maximale, laut, lauter} -> Dreht Spotify auf volle Lautstärke
+
+... spotify {min, leise, leiser, minimal} -> Dreht Spotify leise
