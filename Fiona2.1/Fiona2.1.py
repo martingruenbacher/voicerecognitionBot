@@ -53,7 +53,7 @@ def getText(recogToText, textToThink):
                 text += recogToText.get()
                 cnt = 0
             time.sleep(0.5)
-        name = ["fiona", "iona", "unna"]
+        name = ["fiona", "iona", "unna", "jona"]
         if any(x in text for x in name):
             textToThink.put(text)
         cnt = 0

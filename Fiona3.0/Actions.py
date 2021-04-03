@@ -8,6 +8,7 @@ import os
 from pydub import AudioSegment
 from pydub.playback import play
 from lib.Spotify import Spotify
+from lib.WeatherReport import WeatherReport
 
 
 class Actions():
@@ -17,6 +18,7 @@ class Actions():
         wikipedia.set_lang("de")
         self.sp = Spotify()
         self.teleBot = teleBot
+        self.weather = WeatherReport()
 
     def getTime(self):
         timeText = datetime.now().time()
@@ -130,3 +132,6 @@ class Actions():
         self.teleBot.sendMessage(msg)
         return ""
 
+    def telegramSendWeather(self, name):
+        self.telegramSendMessage(self.weather.get_weather(name=name))
+        return ""

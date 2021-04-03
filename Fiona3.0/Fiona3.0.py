@@ -75,12 +75,13 @@ def thinkAbout(textToThink):
         teleBot.message = ""
         
         time.sleep(0.01)
-          
+        
 
 class Voice():
 
     def __init__(self):
         self.language = 'de'
+        self.say("Hallo ihr geilen Säcke!")
 
     def say(self, text):
         if text != "":
