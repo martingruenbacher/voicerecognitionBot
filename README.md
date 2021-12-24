@@ -9,4 +9,4 @@ Further operations are coming soon.
 
 - gender: female
 - name: Fiona
-- age: 6 months
+- age: 12 months
